@@ -5,9 +5,8 @@ date: 2012-03-17 10:52
 comments: true
 Hello,World: 
 ---
-写blog的习惯种种原因，中断了近三年的时间，这期间很多的东西都没有记录下来，当用到曾经用到的东西时发现自己都忘记了。所以这次借助github，并且依靠octopress这个hanck的blog系统，把以后的时光进行记录下来！  
-
-搭建这个环境时用到以下文档，感谢！  
+只从上大学以来一直想找机会把自己的点点滴滴记录下来，如今有机会可以利用jekyll和github搭建自己的个人blog，我会把自己以后的
+学习心得和生活体会记录下来和广大的网友分享。再次谢谢一下的各位：
 <http://blog.4321.la/articles/2012/01/25/set-up-octopress/>  
 <http://markdown.tw/>  
 <http://rogerdudler.github.com/git-guide/index.zh.html>  
