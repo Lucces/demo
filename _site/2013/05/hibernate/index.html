@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="author" content="明灿" />
+    <title>Hibernate复习回顾 | 明灿</title>
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="/feed/" rel="alternate" title="明灿" type="application/atom+xml" />
+    <link rel="stylesheet" href="/media/css/style.css">
+    <link rel="stylesheet" href="/media/css/highlight.css">
+    <script type="text/javascript" src="/media/js/jquery-1.7.1.min.js"></script>
+  </head>
+  <body>
+    <div id="container">
+      <div id="main" role="main">
+        <header>
+        <h1>Hibernate复习回顾</h1>
+        </header>
+        <nav>
+        <span><a title="home page" class="" href="/">Home</a></span>
+        <span><a title="about" class="" href="/about/">About</a></span>
+        <span><a title="guestbook" class="" href="/message/">Message</a></span>
+        <span><a title="categories" class="" href="/kinds/">Kinds</a></span>
+        <span><a title="links" class="" href="/links/">Links</a></span>
+        <span><a title="subscribe by RSS" class="" href="/feed/">Feed</a></span>
+        </nav>
+        <article class="content">
+        <h2 id='hibernate_'>Hibernate 复习回顾</h2>
+
+<ol>
+<li>Hibernate工作流程：应用程序会首先调用configuration类，然后通过读取hibernate.cfg.xml和xxx.hbm.xml文件生成一个sessionfactory对象，它代表表Hibernate所有java类到数据库映射的集合。利用sessionfactory对象可以生成一个session。在这个session中可以调用beginTranscation()方法创建一个业务，在这个业务中再利用session对象的load(),get(),save(),update(),delete(),saveorupdate()对数据库进行操作。最后调用session的fetTranscation().commit()方法将操作进行提交。</li>
+</ol>
+
+<p><img alt='' src='http://s1.sinaimg.cn/bmiddle/629ed15ag7255b46bfa80&amp;690' /></p>
+
+<ol>
+<li>Hibernate的缓存机制：hibernate缓存的主要作用是缓解数据库的访问压力，提高运行程序的性能。hibernate缓存分为两类：一级缓存为hibernate自带的，不可卸载，存在于session中，一旦session关闭，一级缓存也将失效。二级缓存在整个sessionfactory中实现，可应用于sessionfactory创建的所有session实例中，存在于整个sessionfactory中，Hibernate并没自带二级缓存，他只是提供了一些第三方二级缓存组件的接口，例如（EHcache）</li>
+</ol>
+
+<p>如何开启二级缓存：在hibernate.cfg.xml中配置如下：</p>
+
+<p><code>&lt;property name=&quot;hibernate.cache.provider_class&quot;&gt;org.hibernate.cache.EhCacheProvider&lt;/property&gt;</code></p>
+
+<p>如何将特定的对象从二级缓存中清除：在session中配置如下：</p>
+
+<p><code>Cache cache = HibernateUtil.getSessionFactory().getCache();	
+cache.evictEntityRegion(User.class);	</code></p>
+
+<h4 id='hibernate_hibernate_annotation'>基于注释的Hibernate (hibernate annotation)</h4>
+
+<p><strong>1.在pojo中</strong>：</p>
+
+<pre><code>@Entity @Table(name=&quot;&quot;) @Cacahe(Usage=...)</code></pre>
+
+<p><strong>一对多</strong>：</p>
+
+<pre><code>user.java
+	@OneToMany(MappedBy=&quot;user&quot;)
+	public Address getAddress(){
+		return this.address;
+	} 
+address.java
+	@ManyToOne
+	@JoinColumn(name=&quot;user_id&quot;)
+	public User getUser(){
+		return this.user;
+	}</code></pre>
+
+<p><strong>多对多</strong>：</p>
+
+<pre><code>student.java
+	@ManyToMany(MappedBy=&quot;student&quot;)
+	public Teacher getTeacher(){
+		return this.teacher;
+	}
+teacher.java
+	@ManyToMany
+	@JoinTable(name=&quot;t_student_teacher&quot;,
+				Joincolumns=@Joincolumn(name=&quot;student_id&quot;),
+				inverseJoincolums=@Joincolumn(name=&quot;teacher_id&quot;))
+	public Student getStudent(){
+		return this.student;
+	}</code></pre>
+
+<p><strong>一对一</strong>：</p>
+
+<pre><code>person.java
+	@OneToOne
+	@PrimaryKeyJoinColumn
+	public Card getCard(){
+		return this.card;
+	}
+card.java        					//这里的card不需要配置
+	public Person getPerson(){
+		return this.person;
+	}</code></pre>
+        </article>
+      </div>
+
+    <footer>
+        <p><small>Powered by <a href="https://github.com/mojombo/jekyll">Jekyll</a> & <a href="http://pages.github.com">GitHub</a> | Copyright 2012 - 2013 by <a href="http://www.mingcanit.tk">董明灿</a> | <a href="http://www.mingcan.tk">董宁导航</a>赋予代码生命</small></p>
+    </footer>
+
+    </div>
+
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-30096094-1']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="author" content="明灿" />
+    <title>struts2复习回顾 | 明灿</title>
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="/feed/" rel="alternate" title="明灿" type="application/atom+xml" />
+    <link rel="stylesheet" href="/media/css/style.css">
+    <link rel="stylesheet" href="/media/css/highlight.css">
+    <script type="text/javascript" src="/media/js/jquery-1.7.1.min.js"></script>
+  </head>
+  <body>
+    <div id="container">
+      <div id="main" role="main">
+        <header>
+        <h1>struts2复习回顾</h1>
+        </header>
+        <nav>
+        <span><a title="home page" class="" href="/">Home</a></span>
+        <span><a title="about" class="" href="/about/">About</a></span>
+        <span><a title="guestbook" class="" href="/message/">Message</a></span>
+        <span><a title="categories" class="" href="/kinds/">Kinds</a></span>
+        <span><a title="links" class="" href="/links/">Links</a></span>
+        <span><a title="subscribe by RSS" class="" href="/feed/">Feed</a></span>
+        </nav>
+        <article class="content">
+        <h2 id='struts2_review'>struts2 review</h2>
+
+<h4 id='struts2_'>struts2 执行过程：</h4>
+
+<pre><code>客户端向容器发出请求，请求先会经过一些filter（这些filter是可选的），
+然后Dispatcher Filter被调用，它主要负责决定这个请求将要调用哪个action，
+一旦决定将要调用哪个action，dispatcher Filter 将会把这个请求交给ActionProxy，
+actionProxy通过配置管理查找相关的配置文件，之后将找到要调用的action。
+之后会经过一系列的interceptor（拦截器）。
+action执行完毕之后，将根据struts.xml中配置的返回结果进行返回，
+结果可以是另一个action链，也可能是回到view视图中。</code></pre>
+
+<h4 id='webxmlstruts2'>web.xml中对struts2的配置：</h4>
+
+<pre><code>&lt;Filter&gt;
+	&lt;filter-name&gt;struts&lt;/filter-name&gt;
+	&lt;filter-class&gt;org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecutefilter&lt;/filter-class&gt;
+&lt;/Filter&gt;
+&lt;filter-mapping&gt;
+	&lt;filter-name&gt;struts&lt;/filter-name&gt;
+	&lt;url-pattern&gt;/*&lt;/url-pattern&gt;
+&lt;/filter-mapping&gt;</code></pre>
+
+<h4 id='urlaction'>获取URL中的传值和表单中的值，表单获得action中的传值：</h4>
+
+<pre><code>将所需要传的值定义为action中的属性，然后只需要在action中生成属性的set get 方法即可。</code></pre>
+
+<h4 id='session'>session的获取方法：</h4>
+
+<pre><code>action实现sessionaware这个接口；
+Map&lt;String ,Object&gt; session = ActionContext().getContext().getSession();</code></pre>
+
+<h4 id='response_request_'>response request 的获取方法：</h4>
+
+<pre><code>action实现ServletRequestAware/ServletResponseAware这个接口；
+HttpServletRequest request = ServletActionContext().getRequest();
+HttpServletResponse response = ServletActionContext().getResponse();</code></pre>
+
+<h4 id='application_'>application 的获取方法：</h4>
+
+<pre><code>action实现ActionAware接口；
+通过ActionContext和ServletActionContext获取；</code></pre>
+
+<h4 id='package'>如何修改package的默认拦截器：</h4>
+
+<pre><code>&lt;package name=&quot;myPackage&quot; namespace=&quot;/&quot; extends=&quot;struts-default&quot;/&gt;
+	&lt;interceptors&gt;
+		&lt;interceptor name=&quot;mytimer&quot; class=&quot;com.luccesit.action.myInterceptor&quot;/&gt;
+		&lt;interceptor-stack name=&quot;mystack&quot;&gt;
+			&lt;interceptor-ref name=&quot;mytimer&quot;&gt;  //mytimer 这个拦截器是自己设定的
+			&lt;interceptor-ref name=&quot;defaultStack&quot;&gt;
+		&lt;/interceptor-stack&gt;
+	&lt;/interceptors&gt;
+	&lt;default-interceptor-ref name=&quot;mystack&quot;&gt;
+//实际上在action中也可以添加interceptor 可以按照如下方法：
+在action中添加一句：&lt;interceptor-ref name=&quot;timer&quot;/&gt;</code></pre>
+
+<h4 id='valuestack'>关于ValueStack值栈的一些介绍：</h4>
+        </article>
+      </div>
+
+    <footer>
+        <p><small>Powered by <a href="https://github.com/mojombo/jekyll">Jekyll</a> & <a href="http://pages.github.com">GitHub</a> | Copyright 2012 - 2013 by <a href="http://www.mingcanit.tk">董明灿</a> | <a href="http://www.mingcan.tk">董宁导航</a>赋予代码生命</small></p>
+    </footer>
+
+    </div>
+
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-30096094-1']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="author" content="明灿" />
+    <title>Ajax | 明灿</title>
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="/feed/" rel="alternate" title="明灿" type="application/atom+xml" />
+    <link rel="stylesheet" href="/media/css/style.css">
+    <link rel="stylesheet" href="/media/css/highlight.css">
+    <script type="text/javascript" src="/media/js/jquery-1.7.1.min.js"></script>
+  </head>
+  <body>
+    <div id="container">
+      <div id="main" role="main">
+        <header>
+        <h1>Ajax</h1>
+        </header>
+        <nav>
+        <span><a title="home page" class="" href="/">Home</a></span>
+        <span><a title="about" class="" href="/about/">About</a></span>
+        <span><a title="guestbook" class="" href="/message/">Message</a></span>
+        <span><a title="categories" class="" href="/kinds/">Kinds</a></span>
+        <span><a title="links" class="" href="/links/">Links</a></span>
+        <span><a title="subscribe by RSS" class="" href="/feed/">Feed</a></span>
+        </nav>
+        <article class="content">
+        <h2 id='ajax'>Ajax复习回顾</h2>
+
+<p>以往的都是client向sever直接发出请求：</p>
+
+<p><img alt='' src='http://www.nowamagic.net/ajax/images/httpreq_thumb.png' /></p>
+
+<p>现在利用ajax的请求流程如下：</p>
+
+<p><img alt='' src='http://www.nowamagic.net/ajax/images/ajax_thumb.png' /></p>
+
+<h4 id='ajax'>Ajax可以实现的功能：</h4>
+
+<pre><code>ajax引擎必须可以让javascript调用，也可以调用javascript。
+ajax引擎必须可以实现异步请求服务器，并且可以接收返回的数据。</code></pre>
+
+<h4 id='ajax'>创建Ajax引擎：</h4>
+
+<pre><code>var xmlHttp;
+function createXmlHttpRequest(){
+	if(window.ActionXObject){
+		xmlHttp = ActionXObject(&quot;XMLHttp&quot;);  //IE下创建的ajax引擎
+	}else{
+		xmlHttp = new XMLHttpRequest();  //非IE下创建的ajax引擎
+	}
+}</code></pre>
+
+<h4 id='ajax'>Ajax的请求：</h4>
+
+<ol>
+<li>
+<p>get请求：</p>
+
+<p>xmlHttp.open(&#8220;get&#8221;,&#8221;doajax.action?t=tom&#8221;,true); xmlHttp.send();</p>
+</li>
+
+<li>
+<p>post请求：</p>
+
+<p>xmlHttp.open(&#8220;post&#8221;,&#8221;doajax.action&#8221;,true); xmlHttp.sendRequestHeader(&#8220;Content-Type&#8221;,&#8221;application/x-www-form-urlencoded&#8221;); xmlHttp.send(&#8220;u=tom&#8221;);</p>
+</li>
+</ol>
+
+<h5 id='end'>end</h5>
+
+<p>ok this is ajax of mine</p>
+        </article>
+      </div>
+
+    <footer>
+        <p><small>Powered by <a href="https://github.com/mojombo/jekyll">Jekyll</a> & <a href="http://pages.github.com">GitHub</a> | Copyright 2012 - 2013 by <a href="http://www.mingcanit.tk">董明灿</a> | <a href="http://www.mingcan.tk">董宁导航</a>赋予代码生命</small></p>
+    </footer>
+
+    </div>
+
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-30096094-1']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  </body>
+</html>
