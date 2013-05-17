@@ -29,7 +29,7 @@ cache.evictEntityRegion(User.class);	`
 	@Entity @Table(name="") @Cacahe(Usage=...)
 
 **一对多**：
-
+{% highlight java %}
 	user.java
 		@OneToMany(MappedBy="user")
 		public Address getAddress(){
@@ -41,8 +41,9 @@ cache.evictEntityRegion(User.class);	`
 		public User getUser(){
 			return this.user;
 		}
+{% endhighlight %}
 **多对多**：
-
+{% highlight java %}
 	student.java
 		@ManyToMany(MappedBy="student")
 		public Teacher getTeacher(){
@@ -56,8 +57,9 @@ cache.evictEntityRegion(User.class);	`
 		public Student getStudent(){
 			return this.student;
 		}
+{% endhighlight %}
 **一对一**：
-
+{% highlight java %}
 	person.java
 		@OneToOne
 		@PrimaryKeyJoinColumn
@@ -68,3 +70,5 @@ cache.evictEntityRegion(User.class);	`
 		public Person getPerson(){
 			return this.person;
 		}
+{% endhighlight %}
+		
