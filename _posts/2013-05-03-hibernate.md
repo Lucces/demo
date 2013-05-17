@@ -14,9 +14,9 @@ title: Hibernate复习回顾
 2.Hibernate的缓存机制：hibernate缓存的主要作用是缓解数据库的访问压力，提高运行程序的性能。hibernate缓存分为两类：一级缓存为hibernate自带的，不可卸载，存在于session中，一旦session关闭，一级缓存也将失效。二级缓存在整个sessionfactory中实现，可应用于sessionfactory创建的所有session实例中，存在于整个sessionfactory中，Hibernate并没自带二级缓存，他只是提供了一些第三方二级缓存组件的接口，例如（EHcache）
 
 如何开启二级缓存：在hibernate.cfg.xml中配置如下：
-
+{% highlight xml %}
 `<property name="hibernate.cache.provider_class">org.hibernate.cache.EhCacheProvider</property>`
-
+{% endhighlight %}
 如何将特定的对象从二级缓存中清除：在session中配置如下：
 
 `Cache cache = HibernateUtil.getSessionFactory().getCache();	
