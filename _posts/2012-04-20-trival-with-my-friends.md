@@ -1,9 +1,9 @@
 ---
 layout: post
-title:My friends and I
+title: My friends and I
 date: 2012-09-16 17:44
 comments: true
-categories: 
+categories: fun
 ---
 
 ![](http://b309.photo.store.qq.com/psb?/9fba08e5-2f40-4bc3-a1f6-55bf27a04755/ixVscGsc9EGvXq5ajpX1Q0d4tmvx7FsB1u35xlceWbQ!/b/YZPIM7hCEwAAYi5kO7gQEwAA&bo=ngL2AQAAAAABAEw!)
