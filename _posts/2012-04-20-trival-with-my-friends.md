@@ -22,7 +22,4 @@ categories: fun
 
 ![](http://b26.photo.store.qq.com/psu?/9fba08e5-2f40-4bc3-a1f6-55bf27a04755/TcprYw5n.rXUehsd*mgEiiaOlXCnguCasTwPzEEDr24!/b/YVf1hg.QhQAAYiMKIRCASAAA&a=26&b=27&bo=ngL2AQAAAAABAEw!)
 
-![](http://a218.photo.store.qq.com/psb?/V12eBm4d2ej7g8/505NYk8rNE22yVoe9UTTdTyGMzsjLhpmHRkueAdVE0s!/i/dJxx*4HYkgAA&bo=WAIgA7AEQAYBAKw!)
-![](http://a223.photo.store.qq.com/psb?/V12eBm4d2ej7g8/Fwl*cw2.wz0KZrJpofxXy8LyUvmMEz8oX6Nqy36zIwE!/i/dMtf94RCWQAA&bo=ngL3AUAGsAQBAL8!)
-
-![](http://b94.photo.store.qq.com/psb?/V11NQY7V40wKBw/fT*NDP0T.kRCB5gOuFAvn4UxKcnKDLjFz1w6BCfqZMI!/b/YdyPFjgzaAAAYk2KFjhoaQAA&bo=9gGeAgAAAAABAEw!)
+![](http://b219.photo.store.qq.com/psb?/V12eBm4d2ej7g8/mg517ypGeIRZ*RGkvJhF1tzG4IGIEI.qxVk3uuLAyOE!/b/dGdYioLvdAAA&bo=ngL3AUAGsAQBAL8!)
