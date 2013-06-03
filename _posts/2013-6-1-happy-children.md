@@ -1,9 +1,8 @@
 ---
-layout: post
-title:Happy Children's Day
-date: 2012-09-16 17:44
-comments: true
-categories: fun
+layout: default
+category : fun
+tagline: "Supporting tagline"
+tags : [fun]
 ---
 
 ### 下面可以说有我们整个童年的回忆，你能找的你的吗？
