@@ -1,0 +1,127 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+  <head>
+    <meta name="baidu-tc-verification" content="bbaaffc0fa8931ad099e5dc1ae65f0c8" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="author" content="{{ site.author }}" />
+    <title>{{ page.title }} | {{ site.author }}</title>
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="/feed/" rel="alternate" title="{{ site.author }}" type="application/atom+xml" />
+    <link rel="stylesheet" href="/media/css/style.css">
+    <link rel="stylesheet" href="/media/css/highlight.css">
+	<link href="/media/css/default.css" type="text/css" rel="stylesheet">
+    <script type="text/javascript" src="/media/js/jquery-1.7.1.min.js"></script>
+	<script type="text/javascript" src="/media/js/garden.js"></script>
+    <script type="text/javascript" src="/media/js/functions.js"></script>
+	<style type="text/css">
+		@font-face {
+			font-family: digit;
+			src: url('/media/font/digital-7_mono.ttf') format("truetype");
+		}
+	</style>
+	
+	
+  </head>
+  <body>
+    <div id="container">
+      <div id="main" role="main">
+        <header>
+        <h1>{{ page.title }}</h1>
+        </header>
+        <nav>
+        <span><a title="home page" class="" href="/">Home</a></span>
+        <span><a title="about" class="" href="/about/">About</a></span>
+        <span><a title="guestbook" class="" href="/message/">Message</a></span>
+        <span><a title="categories" class="" href="/kinds/">Kinds</a></span>
+        <span><a title="links" class="" href="/links/">Links</a></span>
+        <span><a title="subscribe by RSS" class="" href="/feed/">Feed</a></span>
+        </nav>
+        <article class="content">
+        <div id="contenter">
+			<div id="code">
+				
+				<span class="comments">/**</span><br />
+				
+				<span class="space"/><span class="comments">* 想了很久,</span><br />
+				<span class="space"/><span class="comments">* 最后还是忍不住想要告诉你,</span><br />
+				<span class="space"/><span class="comments">* 我喜欢你,</span><br />
+				
+			</div>
+			<div id="loveHeart">
+				<canvas id="garden"></canvas>
+				<div id="words">
+					<div id="messages">
+						XXX  我喜欢你，给我一个机会，我证明给你看！
+						<!-- <div id="elapseClock"></div> -->
+					</div>
+					<div style="margin-top:20px;margin-right:80px" id="loveu">
+						<div class="signature">- 明灿</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+        </article>
+		<div id="disqus_thread"></div>
+      </div>
+
+    <footer>
+        <p><small>Powered by <a href="https://github.com/mojombo/jekyll">Jekyll</a> & <a href="http://pages.github.com">GitHub</a> | Copyright 2012 - {{site.time | date:"%Y"}} by <a href="http://mingcanit.tk">董明灿</a> | <a href="http://www.mingcan.tk">董宁导航</a>赋予代码生命</small></p>
+    </footer>
+
+    </div>
+	
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-30096094-1']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+	  var offsetX = $("#loveHeart").width() / 2;
+		var offsetY = $("#loveHeart").height() / 2 - 55;
+		var together = new Date();
+		together.setFullYear(2006, 9, 1);
+		together.setHours(20);
+		together.setMinutes(0);
+		together.setSeconds(0);
+		together.setMilliseconds(0);
+		
+		if (!document.createElement('canvas').getContext) {
+			var msg = document.createElement("div");
+			msg.id = "errorMsg";
+			msg.innerHTML = "Your browser doesn't support HTML5!<br/>Recommend use Chrome 14+/IE 9+/Firefox 7+/Safari 4+"; 
+			document.body.appendChild(msg);
+			$("#code").css("display", "none")
+			$("#copyright").css("position", "absolute");
+			$("#copyright").css("bottom", "10px");
+		    document.execCommand("stop");
+		} else {
+			setTimeout(function () {
+				startHeartAnimation();
+			}, 5000);
+
+			timeElapse(together);
+			setInterval(function () {
+				timeElapse(together);
+			}, 500);
+
+			adjustCodePosition();
+			$("#code").typewriter();
+		}
+		/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'mingcanblog'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    
+    </script>
+  </body>
+</html>
